@@ -1,7 +1,5 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
-import request from "supertest";
-import { app } from "../app";
 import jwt from "jsonwebtoken";
 
 declare global {
@@ -13,6 +11,9 @@ declare global {
 }
 
 jest.mock("../nats-wrapper");
+
+process.env.STRIPE_KEY =
+  "sk_test_51IbgEnB7vWFlBoAX1IeUwNHnHJjTiHNKPw9MidfCzflOXWKZ2yrJDyKO4ylYUlhXPhjuMpsjA9LfbBRnBZtIa2a2003WImhpkd";
 
 let mongo: any;
 beforeAll(async () => {
